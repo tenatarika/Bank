@@ -50,6 +50,5 @@ class Bank(People):
     
     def deposit(self, amount):
         self.user.deposit(amount)
-    
-#wo = Account('volk', 0)    
-men1 = Bank('Boris', 'prof')
+
+#men1 = Bank('Boris', 'prof')

@@ -22,5 +22,5 @@ class People:
     prof = Salary(500, 1000, 2000, 100000)    
     
     
-men = People()
+#men = People()
 

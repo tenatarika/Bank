@@ -53,4 +53,4 @@ class Account:
                 color = RED
             print(f'{color} {amount} {WHITE}, {transaction} on {date.astimezone()} ')
         
-a = Account('sl', 0)
+#a = Account('sl', 0)
