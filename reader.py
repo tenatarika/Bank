@@ -7,24 +7,29 @@ Created on Thu Oct 15 01:47:16 2020
 
 import json
 
-class Reader():        
-    @classmethod
-    def addWord(cls, word):
-        data = cls.readJson()
-        data.update({1 : word}) #нужно написать норм тип данных
-        cls.writeJson(data)
+class Reader():
+    def __init__(self, file_name):
+        self.file_name = file_name    
         
-    @classmethod    
-    def writeJson(cls, data):
         
-        with open('dataWords.json', 'w') as f:
+    
+    def addWord(self, new1_data, new2_data):
+        data = self.readJson()
+        #n_list = len(data)
+        data.update({new1_data : new2_data}) 
+        self.writeJson(data)
+        
+      
+    def writeJson(self, data):
+        
+        with open(self.file_name, 'w') as f:
             
             json.dump(data, f, indent = 4, ensure_ascii=False)
             
-    @classmethod    
-    def readJson(cls):
+       
+    def readJson(self):
         try:
-            data = json.load(open('test.json'))
+            data = json.load(open(self.file_name))
             
         except:
             data = {}
@@ -33,3 +38,7 @@ class Reader():
     
     
 
+#test = Reader('test.json')
+#test.writeJson({12323: 'pub_key'})
+#test.addWord('ojjibu')
+#test.addWord('oiokhjungtrffr')
