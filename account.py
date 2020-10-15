@@ -26,9 +26,12 @@ class Account:
         return  pytz.utc.localize(datetime.utcnow())
     
     def deposit(self, amount):
-        self._balance+=amount
-        self.show_balance()
-        self._history.append([amount, self._get_current_time()])
+        try:
+            self._balance+=amount
+            self.show_balance()
+            self._history.append([amount, self._get_current_time()])
+        except TypeError:
+            print('type error! We need int!')
         
     def withdraw(self, amount):
         if self._balance > amount:
@@ -53,4 +56,3 @@ class Account:
                 color = RED
             print(f'{color} {amount} {WHITE}, {transaction} on {date.astimezone()} ')
         
-#a = Account('sl', 0)
