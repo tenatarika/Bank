@@ -7,8 +7,10 @@ Created on Thu Oct 15 00:40:35 2020
 
 import unittest 
 
-from account import Account
+from unittest.mock import patch
 
+from account import Account
+from bank import Bank
 
 class TestAccont(unittest.TestCase):
     
@@ -30,7 +32,13 @@ class TestAccont(unittest.TestCase):
         self.assertNotEqual(3000, self.my_account._balance)
     
         
-     
+class TestBank(unittest.TestCase):
+    def setUp(self):
+        self.jobs = ['student', 'prof', 'developer', 'admin', 'student']
+        
+         
+       
+    
         
 if __name__ == '__main__':
     unittest.main()

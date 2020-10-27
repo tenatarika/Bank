@@ -7,7 +7,7 @@ Created on Fri Oct  2 19:21:11 2020
 
 from account import Account
 from people import People
-class Bank(People):
+class Bank():
     
     def __init__(self, name, job):
         self.name = name 
@@ -26,14 +26,8 @@ class Bank(People):
         
     
     def get_job(self):
-        if self.job.lower() == 'student':
-            
-            self.salary = People.student
-            print(f'Hey, {self.name}! You can earn {self.salary} points!')
-        else:
-            
-            self.salary = People.prof
-            print(f'Hey, {self.name}! You can earn {self.salary} points!')
+        people = People(self.job)
+        self.salary = people.get()
         
     def payday(self):
         self.user.deposit(self.salary)
@@ -51,4 +45,3 @@ class Bank(People):
     def deposit(self, amount):
         self.user.deposit(amount)
 
-men1 = Bank('Boris', 'prof')
